@@ -18,8 +18,8 @@ public class ProductService {
     // 물건 이름
     // 물건 수량
     // 총 가격 구하기
-    public List<Product> getProductListByUserId(Long userId) {
-        List<Product> productList = productRepository.getProductListByUserId(userId);
+    public List<Product> getProductListByBagId(Long bagId) {
+        List<Product> productList = productRepository.getProductListByBagId(bagId);
 
         return productList;
     }

@@ -9,7 +9,7 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product,Long> {
     // 유저프로덕트-프로덕트 테이블 조인 후,
     // userId 조건으로 필터링
-    @Query("select p from UserProduct up join up.product p " +
-            "where up.user.id =:userId")
-    List<Product> getProductListByUserId(@Param("userId") Long userId);
+    @Query("select p from BagProduct up join up.product p " +
+            "where up.bag.id =:bagId")
+    List<Product> getProductListByBagId(@Param("bagId") Long bagId);
 }

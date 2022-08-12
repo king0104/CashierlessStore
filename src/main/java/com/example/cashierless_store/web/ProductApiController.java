@@ -17,9 +17,9 @@ public class ProductApiController {
     private final ProductService productService;
 
     // 유저가 현재 장바구니에 담은 물건 목록 보여주기
-    @GetMapping("api/v1/product/{userId}")
-    public List<ProductResponseDto> getProductListByUserId(@PathVariable Long userId) {
-        List<Product> productList = productService.getProductListByUserId(userId);
+    @GetMapping("api/v1/product/{bagId}")
+    public List<ProductResponseDto> getProductListByBagId(@PathVariable Long bagId) {
+        List<Product> productList = productService.getProductListByBagId(bagId);
 
         // entity -> dto 변환
         List<ProductResponseDto> productResponseDtoList = new ArrayList<>();

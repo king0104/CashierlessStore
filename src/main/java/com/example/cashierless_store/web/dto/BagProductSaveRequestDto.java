@@ -6,13 +6,13 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class UserProductSaveRequestDto {
-    private Long userId;
+public class BagProductSaveRequestDto {
+    private Long bagId;
     private Long productId;
 
     @Builder
-    public UserProductSaveRequestDto(Long userId, Long productId) {
-        this.userId = userId;
+    public BagProductSaveRequestDto(Long bagId, Long productId) {
+        this.bagId = bagId;
         this.productId = productId;
     }
 

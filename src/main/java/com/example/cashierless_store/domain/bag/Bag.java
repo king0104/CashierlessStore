@@ -1,25 +1,24 @@
-package com.example.cashierless_store.domain.user;
+package com.example.cashierless_store.domain.bag;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Getter
 //@NoArgsConstructor
 @Entity
-public class User {
+public class Bag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "bag_id")
     private Long id;
 
 //    @OneToMany(mappedBy = "user")
 //    private List<UserProduct> userProductList = new ArrayList<UserProduct>();
     @Builder
-    public User() {
+    public Bag() {
     }
 
 }
