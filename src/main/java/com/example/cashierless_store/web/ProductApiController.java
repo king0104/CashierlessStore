@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@RestController // http body에 리턴값을 바로 박아준다.
 @RequiredArgsConstructor
 public class ProductApiController {
     private final ProductService productService;
@@ -30,5 +30,6 @@ public class ProductApiController {
         // 물건 정보인 dto들을 담은 리스트를 반환
         return productResponseDtoList;
     }
+
 
 }

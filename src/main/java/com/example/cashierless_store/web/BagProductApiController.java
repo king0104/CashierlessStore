@@ -1,6 +1,7 @@
 package com.example.cashierless_store.web;
 
 import com.example.cashierless_store.service.BagProductService;
+import com.example.cashierless_store.web.dto.BagProductDeleteRequestDto;
 import com.example.cashierless_store.web.dto.BagProductSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -12,20 +13,25 @@ public class BagProductApiController {
 
     private final BagProductService bagProductService;
 
-    // (유저 아이디, 물건 아이디 필요)
-    // 유저프로덕트 추가
+    // create
+    // json : (userId, productId)
     @PostMapping("api/v1/bagProduct")
     public Long save(@RequestBody BagProductSaveRequestDto requestDto) {
         return bagProductService.save(requestDto);
     }
 
-    // 한 유저의 유저프로덕트 전부 삭제
-    // userId 전달하면 됨
+    // delete
+    // json : (userId, productId)
+    @PostMapping("api/v1/bagProduct/delete")
+    public void delete(@RequestBody BagProductDeleteRequestDto requestDto) {
+        bagProductService.delete(requestDto);
+    }
+
+    // deleteAll
+    // json : (userId)
     @PostMapping("api/v1/bagProduct/{bagId}/deleteAll")
     public void deleteAllByBagId(@PathVariable Long bagId) {
         bagProductService.deleteAllByBagId(bagId);
     }
-
-
 
 }

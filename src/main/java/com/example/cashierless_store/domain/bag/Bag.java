@@ -2,9 +2,11 @@ package com.example.cashierless_store.domain.bag;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
+@ToString
 @Getter
 //@NoArgsConstructor
 @Entity

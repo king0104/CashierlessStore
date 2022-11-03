@@ -6,6 +6,7 @@ import com.example.cashierless_store.domain.bag.Bag;
 import com.example.cashierless_store.domain.bag.BagRepository;
 import com.example.cashierless_store.domain.bagProduct.BagProduct;
 import com.example.cashierless_store.domain.bagProduct.BagProductRepository;
+import com.example.cashierless_store.web.dto.BagProductDeleteRequestDto;
 import com.example.cashierless_store.web.dto.BagProductSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,6 @@ public class BagProductService {
                 .bag(bag)
                 .product(product)
                 .build()).getId();
-
     }
 
     @Transactional
@@ -45,6 +45,16 @@ public class BagProductService {
                 bagProductRepository.delete(bagProduct);
             }
         }
+    }
+
+    @Transactional
+    public void delete(BagProductDeleteRequestDto requestDto) {
+        Long bagId = requestDto.getBagId();
+        Long productId = requestDto.getProductId();
+
+        Long newBagProductId = bagProductRepository.find(bagId, productId);
+        bagProductRepository.deleteById(newBagProductId);
+
     }
 
 

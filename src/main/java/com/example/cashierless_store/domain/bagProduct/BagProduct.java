@@ -5,8 +5,11 @@ import com.example.cashierless_store.domain.bag.Bag;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
+
+@ToString
 @Getter
 @NoArgsConstructor
 @Entity

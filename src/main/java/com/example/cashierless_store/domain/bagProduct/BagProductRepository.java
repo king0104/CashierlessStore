@@ -14,5 +14,12 @@ public interface BagProductRepository extends JpaRepository<BagProduct, Long> {
     @Query("select up from BagProduct up where up.bag.id =:bagId")
     List<BagProduct> findByBagId(@Param("bagId") Long bagId);
 
+    // bagId, 1개 리턴하기 limit 쿼리 이용
+    @Query(value = "SELECT bag_product_id\n" +
+            "FROM bag_product\n" +
+            "WHERE bag_id = :bagId and product_id = :productId\n" +
+            "LIMIT 1",
+    nativeQuery = true)
+    Long find(@Param("bagId") Long bagId, @Param("productId") Long productId);
 
 }
